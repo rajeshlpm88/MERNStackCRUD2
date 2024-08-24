@@ -67,4 +67,16 @@ catch(err)
 
 })
 
+router.delete('/:id', async (req, res) => {
+    try {
+        const result = await Student.findByIdAndDelete(req.params.id);
+        if (!result) {
+            return res.status(404).send('Student not found');
+        }
+        res.json({ message: 'Student deleted successfully' });
+    } catch (err) {
+        res.send('Error ' + err);
+    }
+});
+
 module.exports = router
