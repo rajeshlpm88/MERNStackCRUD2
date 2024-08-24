@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "./App.css";
-import Axios from 'axios'
+import Axios from 'axios';
 function App()
 {
 const[sname,setStudentName]= useState("");
@@ -8,7 +8,7 @@ const[tech,setTechnology]= useState("");
 const[status,setStatus]= useState("");
 const submitReview=()=>
 {
-Axios.post('http://127.0.0.1:9000/aliens',
+Axios.post('http://localhost:9000/student',
 {name:sname,
 tech:tech,
 sub:status}).then(()=>
@@ -24,17 +24,26 @@ return (
 <input
 type="text"
 name="sname"
-onChange={(e)=>{setStudentName(e.target.value);}} required/>
+onChange={(e)=>{
+setStudentName(e.target.value);
+}}
+required/>
 <label><b>Technology</b></label>
 <input
 type="text"
 name="tech"
-onChange={(e)=>{setTechnology(e.target.value);}} required/>
+onChange={(e)=>{
+setTechnology(e.target.value);
+}}
+required/>
 <label><b>Status</b></label>
 <input
 type="text"
 name="status"
-onChange={(e)=>{setStatus(e.target.value);}} required/>
+onChange={(e)=>{
+setStatus(e.target.value);
+}}
+required/>
 <button onClick={submitReview}><b>Submit</b></button>
 </div>
 </div>);
